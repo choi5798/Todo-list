@@ -1,22 +1,26 @@
-function sendAjax(url, data){
-    data = {'email' : data};
-    data = JSON.stringify(data);
+$('#btn_submit').click(()=>{
+    const contents = $('#add_contents').val();
+    const deadline = $('#add_deadline').val();
+    console.log('deadline : ' + deadline);
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', url);
-    xhr.setRequestHeader('Content-type', 'application/json');
-    xhr.send(data);
+    if(!contents || contents === ' '){
+        alert('내용을 입력해주세요');
+        return false;
+    }
+    if(!deadline || deadline === null){
+        alert('기한을 정해주세요');
+        return false;
+    }
+    $.ajax({
+        url:'/api/add',
+        data:{'contents' : contents, 'deadline' : deadline},
+        type:'POST',
+        success : (data)=>{
+            alert('성공!');
+        },
+        error : (err)=>{
+            alert(err);
+        }
 
-    xhr.addEventListener('load', ()=>{ // 일 다 끝나면 발동
-        console.log("xhr.responseText : " + xhr.responseText);
-        var result = JSON.parse(xhr.responseText);
-        if(result.result !== 'ok') return;
-        document.querySelector(".result").innerHTML = result.email;
-    });
-}
-
-document.querySelector('.ajaxsend').addEventListener('click', ()=>{
-    var inputdata = document.forms[2].elements[0].value;
-    console.log('inputdata : ' + inputdata);
-    sendAjax('http://localhost:3000/ajax_send_email', inputdata);
+    })
 })

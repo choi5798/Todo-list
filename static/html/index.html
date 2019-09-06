@@ -3,49 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <a href="todolist.html"><h1 id="todolistHeader"To do List></h1></a>
-        </div>
+    <div class="header">
+        <form class="insert" id="insert">
+            <input type="submit" value="새 일정 만들기"></input>
+        </form>
+    </div>
+    <hr>
+    <div class="body">
+        <div class="write z-depth-2">
+            <form id="write-form">
+                내용 <br>
+                <input type="text" name="add_contents" id="add_contents" required>
+                <br>
+                기한 <br>
+                <input type="date" name="add_deadline" id="add_deadline" value="2019-09-07">
+                <div class="button-field">
+                    <input type="button" id="btn_submit" value="추가">
+                    <input type="button" id="btn_cancel" value="취소">
+                </div>
 
-        <div class="row">
-            <div class="col-sm-6">
-                <hr>
-                <p class="enter">Write what to do and Press Enter!</p>
-
-                <p class="inputarea">
-                        <p>
-                            <input type="text" id="inputText" placeholder="what to do">
-                            <ul id="todolist"></ul>
-                        </p>
-                </p>
-            </div>
-            <div class="col-sm-6">
-                <hr>
-                <p id="enter">Done</p>
-
-                <ul id="donelist"></ul>
-
-            </div>
+            </form>
         </div>
     </div>
-    
-    
-    <ul id="todolist">
+    <div class="footer">
 
-    </ul>
-
+    </div>
 
 </body>
-<script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
+
 <!-- <script src="../js/clock.js"></script> -->
 <script src="../js/main.js"></script>
-<!-- <script src = "../js/ajax.js"></script> -->
+<script src = "../js/ajax.js"></script>
+<script>
+    
+</script>
 
 </html>
