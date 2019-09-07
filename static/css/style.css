@@ -11,3 +11,9 @@
 .z-depth-2{
     z-index: 2;
 }
+#write{
+    display: inline-block;
+    position: absolute;
+    visibility: hidden;
+    text-align: center;
+}

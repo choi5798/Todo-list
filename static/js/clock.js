@@ -19,4 +19,5 @@ function getTime(){
 $(document).ready(function(){
     getTime();
     setInterval(getTime, 1000);
+    
 });

@@ -1,9 +1,12 @@
 const fs = require('fs');
 
 const add = (req, res)=>{
+    console.log(req.body);
     const contents = req.body.contents;
     const deadline = req.body.deadline;
 
+    console.log(contents);
+    console.log(deadline);
     const dataCheck = ()=>{
         return new Promise((resolve, reject)=>{
             if(!contents || !deadline){
@@ -35,21 +38,26 @@ const add = (req, res)=>{
 
     const addTodo = (todo)=>{
         return new Promise((resolve, reject)=>{
-            todo.contents = contents;
-            todo.deadline = deadline;
-
-            fs.writeFile('./todo.json', todo ,(err)=>{
-                if(err){
-                    throw err;
-                }
-            });
+            const newtodo = {
+                'contents' : contents,
+                'deadline' : deadline
+            };
+            todo['rows'].push(newtodo);
+            todo['count']++;
             resolve(todo);
         });
+    }
+
+    const addTodoJson = (todo)=>{
+        fs.writeFile('./todo.json', JSON.stringify(todo),(err)=>{
+                if(err) throw err;
+            });
     }
 
     dataCheck()
     .then(getTodo)
     .then(addTodo)
+    .then(addTodoJson)
     .then((todo)=>{
         res.status(200).json(todo);
     })

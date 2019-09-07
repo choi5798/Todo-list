@@ -1,3 +1,20 @@
+function callApi(api, json, callback){
+    $.ajax({
+        url:'/api' + api,
+        data:json,
+        type:'POST',
+        success : (data)=>{
+            console.log(data);
+            alert('성공!');
+            callback(data);
+        },
+        error : (err)=>{
+            alert('에러 : ' + err);
+        }
+
+    });
+}
+
 $('#btn_submit').click(()=>{
     const contents = $('#add_contents').val();
     const deadline = $('#add_deadline').val();
@@ -11,16 +28,11 @@ $('#btn_submit').click(()=>{
         alert('기한을 정해주세요');
         return false;
     }
-    $.ajax({
-        url:'/api/add',
-        data:{'contents' : contents, 'deadline' : deadline},
-        type:'POST',
-        success : (data)=>{
-            alert('성공!');
-        },
-        error : (err)=>{
-            alert(err);
-        }
-
+    const json = {'contents' : contents, 'deadline' : deadline};
+    callApi('/add', json, (data)=>{
+        const p = $('#body').createElement('p');
+        p.innerHTML = data;
     })
+    
 })
+
