@@ -39,6 +39,7 @@ const add = (req, res)=>{
     const addTodo = (todo)=>{
         return new Promise((resolve, reject)=>{
             const newtodo = {
+                'id' : todo['count'],
                 'contents' : contents,
                 'deadline' : deadline
             };
@@ -49,7 +50,7 @@ const add = (req, res)=>{
     }
 
     const addTodoJson = (todo)=>{
-        fs.writeFile('./todo.json', JSON.stringify(todo),(err)=>{
+        fs.writeFile('./todo.json', JSON.stringify(todo, null, 4),(err)=>{
                 if(err) throw err;
             });
     }

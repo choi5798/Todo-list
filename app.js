@@ -13,17 +13,6 @@ app.use(bodyParser.json());
 app.use('/api',require('./api'));
 app.use('/',require('./router'));
 
-// app.post('/email_post', (req, res)=>{
-//     console.log(req.body);
-//     res.send("welcome! " + req.body.email);
-// })
-
-// app.post('/ajax_send_email', (req, res)=>{
-//     console.log(req.body.email);
-//     const responseData = {'result' : 'ok', 'email' : req.body.email};
-//     res.json(responseData);
-// });
-
 app.listen(3000, ()=>{
     console.log('Server is running on port 3000!');
 });
