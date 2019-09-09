@@ -9,7 +9,7 @@ function callApi(api, json, callback){
             callback(data);
         },
         error : (err)=>{
-            alert('에러 : ' + err);
+            alert('에러 : ' + JSON.stringify(err));
         }
 
     });
@@ -30,9 +30,12 @@ $('#btn_submit').click(()=>{
     }
     const json = {'contents' : contents, 'deadline' : deadline};
     callApi('/add', json, (data)=>{
-        const p = $('#body').createElement('p');
-        p.innerHTML = data;
-    })
-    
+        const array = new Array();
+        data['rows'].forEach(element => {
+            array.push(JSON.stringify(element));
+        });
+        $('#contents').text(array);
+    });
+    $('#write').attr('style', 'visibility:hidden');
 })
 

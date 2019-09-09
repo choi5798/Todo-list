@@ -11,9 +11,11 @@ const add = (req, res)=>{
         return new Promise((resolve, reject)=>{
             if(!contents || !deadline){
                 if(!contents){
+                    console.log('contents reject');
                     reject({code : 'empty_param', data : 'contents'});
                 }
                 else if(!deadline){
+                    console.log('deadline reject');
                     reject({code : 'empty_param', data : 'deadline'});
                 }
             }
@@ -50,9 +52,13 @@ const add = (req, res)=>{
     }
 
     const addTodoJson = (todo)=>{
-        fs.writeFile('./todo.json', JSON.stringify(todo, null, 4),(err)=>{
+        return new Promise((resolve, reject)=>{
+            fs.writeFile('./todo.json', JSON.stringify(todo, null, 4),(err)=>{
                 if(err) throw err;
             });
+            resolve(todo);
+        });
+        
     }
 
     dataCheck()
