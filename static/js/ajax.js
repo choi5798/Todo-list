@@ -4,12 +4,11 @@ function callApi(api, json, callback){
         data:json,
         type:'POST',
         success : (data)=>{
-            console.log(data);
-            alert('성공!');
             callback(data);
         },
         error : (err)=>{
-            alert('에러 : ' + JSON.stringify(err));
+            alert('오류, 콘솔 창 확인');
+            console.log(JSON.stringify(err));
         }
 
     });
@@ -30,12 +29,25 @@ $('#btn_submit').click(()=>{
     }
     const json = {'contents' : contents, 'deadline' : deadline};
     callApi('/add', json, (data)=>{
-        const array = new Array();
-        data['rows'].forEach(element => {
-            array.push(JSON.stringify(element));
-        });
-        $('#contents').text(array);
+        const array = data['rows'];
+        const last = array[array.length-1];
+        $('#contents').append(`<li>할일 : ${last['contents']} 기한 : ${last['deadline']} </li><br>`);
     });
     $('#write').attr('style', 'visibility:hidden');
-})
+});
 
+
+function list(){
+    callApi('/list', {}, (data)=>{
+        const array = data['rows'];
+        for(let i = 0; i < array.length; i++){
+            const json = array[i];
+            console.log(array[i]);
+            $('#contents').append(`<li>할일 : ${json['contents']} 기한 : ${json['deadline']} </li><br>`);
+        }
+    });
+}
+
+$(document).ready(()=>{
+    list();
+});

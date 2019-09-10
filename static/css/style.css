@@ -8,8 +8,8 @@
 * * * * * * * * { background-color: rgba(0,255,0,.2); }
 * * * * * * * * * { background-color: rgba(0,0,255,.2); }
 
-.z-depth-2{
-    z-index: 2;
+.z-depth-5{
+    z-index: 5;
 }
 #write{
     display: inline-block;

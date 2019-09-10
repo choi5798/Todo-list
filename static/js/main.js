@@ -5,4 +5,6 @@ $('#btn_insert').click(()=>{
 
 $('#btn_cancel').click(()=>{
     $('#write').attr('style', 'visibility:hidden');
-})
+});
+
+
