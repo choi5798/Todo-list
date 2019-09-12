@@ -35,7 +35,7 @@ $('#btn_submit').click(()=>{
         $('#contents').append(`<li>할일 : <span id = "pass_con${last.id}">${last.contents}</span>
         기한 : <span id = "pass_dead${last.id}">${last.deadline}</span> <br>
         <input type = "button" class = "btn_edit" value = "수정" onclick="edit_contents(${last.id})">
-        <input type = "button" class = "btn_delete" value = "삭제"></li><br>`);
+        <input type = "button" class = "btn_delete" value = "삭제" onclick = "del_contents(${last.id})"></li><br>`);
     });
     $('#write').attr('style', 'visibility:hidden');
 });
@@ -48,7 +48,7 @@ function list(){
             $('#contents').append(`<li>할일 : <span id = "pass_con${json.id}">${json.contents}</span>
             기한 : <span id = "pass_dead${json.id}">${json.deadline}</span> <br>
             <input type = "button" class = "btn_edit" value = "수정" onclick = "edit_contents(${json.id})">
-            <input type = "button" class = "btn_delete" value = "삭제"></li><br>`);
+            <input type = "button" class = "btn_delete" value = "삭제" onclick = "del_contents(${json.id})"></li><br>`);
         }
     });
 }
@@ -56,10 +56,12 @@ function list(){
 let index;
 function edit_contents(id){
     $('#edit').attr('style', 'visibility:visible');
+    const main = $(`#pass_dead${id}`).position();
+    const pop = $('#edit');
+    pop.css('top', (main.top)+'px');
+    pop.css('left', (main.left + 100) + 'px');
     const pass_con = $(`#pass_con${id}`).text();
     const pass_dead = $(`#pass_dead${id}`).text();
-    console.log(pass_con);
-    console.log(pass_dead);
     $('#edit_contents').val(pass_con);
     $('#edit_contents').focus();
     $('#edit_deadline').val(pass_dead);
@@ -94,14 +96,19 @@ $('#btn_edit').click(()=>{
             $('#contents').append(`<li>할일 : <span id = "pass_con${temp.id}">${temp.contents}</span>
             기한 : <span id = "pass_dead${temp.id}">${temp.deadline}</span> <br>
             <input type = "button" class = "btn_edit" value = "수정" onclick = "edit_contents(${temp.id})">
-            <input type = "button" class = "btn_delete" value = "삭제"></li><br>`);
+            <input type = "button" class = "btn_delete" value = "삭제" onclick = "del_contents(${temp.id})"></li><br>`);
         }
     });
     alert('수정 완료!');
     $('#edit').attr('style', 'visibility:hidden');
 });
 
+function del_contents(id){
+    const idJson = {'id' : id};
+    callApi('/delete', idJson, (data)=>{
 
+    })
+}
 
 $(document).ready(()=>{
     list();
