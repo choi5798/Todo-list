@@ -41,12 +41,12 @@ const add = (req, res)=>{
     const addTodo = (todo)=>{
         return new Promise((resolve, reject)=>{
             const newtodo = {
-                'id' : todo['count'],
+                'id' : todo.count,
                 'contents' : contents,
                 'deadline' : deadline
             };
-            todo['rows'].push(newtodo);
-            todo['count']++;
+            todo.rows.push(newtodo);
+            todo.count++;
             resolve(todo);
         });
     }

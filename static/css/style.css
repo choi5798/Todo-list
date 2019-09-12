@@ -16,4 +16,13 @@
     position: absolute;
     visibility: hidden;
     text-align: center;
+    background-color: white;
+}
+
+#edit{
+    display: inline-block;
+    position: absolute;
+    visibility: hidden;
+    text-align: center;
+    background-color: antiquewhite;
 }

@@ -11,16 +11,29 @@
     </div>
     <hr>
     <div class="body">
-        <div class="write z-depth-5" id="write">
+        <div class="z-depth-5" id="write">
             <form id="write-form">
                 내용 <br>
-                <input type="text" name="add_contents" id="add_contents" required>
+                <textarea name="add_contents" id="add_contents" required cols="30" rows="10"></textarea>
                 <br>
                 기한 <br>
-                <input type="date" name="add_deadline" id="add_deadline" value="2019-09-07">
+                <input type="date" name="add_deadline" id="add_deadline" required>
                 <div class="button-field">
                     <input type="button" id="btn_submit" value="추가">
                     <input type="button" id="btn_cancel" value="취소">
+                </div>
+            </form>
+        </div>
+        <div class="z-depth-5" id="edit">
+            <form id="edit-form">
+                내용 <br>
+                <textarea name="edit_contents" id="edit_contents" cols="30" rows="10" required></textarea>
+                <br>
+                기한
+                <input type="date" name="edit_deadline" id="edit_deadline">
+                <div class="button-field">
+                    <input type="button" id="btn_edit" value="수정">
+                    <input type="button" id="btn_edit_cancel" value="취소">
                 </div>
             </form>
         </div>
@@ -29,6 +42,7 @@
 
             </ul>
         </div>
+
     </div>
     <div class="footer">
 
