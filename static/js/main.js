@@ -1,6 +1,8 @@
 $('#btn_insert').click(()=>{
     $('#write').attr('style', 'visibility:visible');
     $('#add_contents').focus();
+    $('#add_contents').val('');
+    $('#add_deadline').val('');
 });
 
 $('#btn_cancel').click(()=>{

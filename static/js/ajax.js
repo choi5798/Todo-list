@@ -38,8 +38,10 @@ $('#btn_submit').click(()=>{
         <input type = "button" class = "btn_delete" value = "삭제" onclick = "del_contents(${last.id})"></li><br>`);
     });
     $('#write').attr('style', 'visibility:hidden');
+    
 });
 
+//list
 function list(){
     callApi('/list', {}, (data)=>{
         const array = data.rows;
@@ -104,9 +106,19 @@ $('#btn_edit').click(()=>{
 });
 
 function del_contents(id){
+    const sure = confirm('정말로 삭제하시겠습니까?');
+    if(!sure) {return false;}
     const idJson = {'id' : id};
     callApi('/delete', idJson, (data)=>{
-
+        $('#contents').empty();
+        const array = data.rows;
+        for(let i = 0; i < array.length; i++){
+            const temp = array[i];
+            $('#contents').append(`<li>할일 : <span id = "pass_con${temp.id}">${temp.contents}</span>
+            기한 : <span id = "pass_dead${temp.id}">${temp.deadline}</span> <br>
+            <input type = "button" class = "btn_edit" value = "수정" onclick = "edit_contents(${temp.id})">
+            <input type = "button" class = "btn_delete" value = "삭제" onclick = "del_contents(${temp.id})"></li><br>`);
+        }
     })
 }
 
