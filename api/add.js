@@ -1,12 +1,9 @@
 const fs = require('fs');
 
 const add = (req, res)=>{
-    console.log(req.body);
     const contents = req.body.contents;
     const deadline = req.body.deadline;
 
-    console.log(contents);
-    console.log(deadline);
     const dataCheck = ()=>{
         return new Promise((resolve, reject)=>{
             if(!contents || !deadline){
@@ -69,7 +66,6 @@ const add = (req, res)=>{
         res.status(200).json(todo);
     })
     .catch((err)=>{
-        console.log(err);
         res.status(500).json(err);
     })
 }

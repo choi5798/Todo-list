@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 </head>
@@ -19,7 +20,7 @@
                 <textarea name="add_contents" id="add_contents" required cols="30" rows="10"></textarea>
                 <br>
                 기한 <br>
-                <input type="date" name="add_deadline" id="add_deadline" required>
+                <input type="text" name="add_deadline" id="add_deadline" class="datepicker" required>
                 <div class="button-field">
                     <input type="button" id="btn_submit" value="추가">
                     <input type="button" id="btn_cancel" value="취소">
@@ -32,7 +33,7 @@
                 <textarea name="edit_contents" id="edit_contents" cols="30" rows="10" required></textarea>
                 <br>
                 기한
-                <input type="date" name="edit_deadline" id="edit_deadline">
+                <input type="text" name="edit_deadline" id="edit_deadline" class="datepicker" required>
                 <div class="button-field">
                     <input type="button" id="btn_edit" value="수정">
                     <input type="button" id="btn_edit_cancel" value="취소">

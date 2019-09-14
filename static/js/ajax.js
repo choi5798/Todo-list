@@ -18,7 +18,6 @@ function callApi(api, json, callback){
 $('#btn_submit').click(()=>{
     const contents = $('#add_contents').val();
     const deadline = $('#add_deadline').val();
-    console.log('deadline : ' + deadline);
 
     if(!contents || contents === ' '){
         alert('내용을 입력해주세요');
@@ -38,7 +37,7 @@ $('#btn_submit').click(()=>{
         <input type = "button" class = "btn_delete" value = "삭제" onclick = "del_contents(${last.id})"></li><br>`);
     });
     $('#write').attr('style', 'visibility:hidden');
-    
+    alert('생성 완료!');
 });
 
 //list
@@ -105,6 +104,7 @@ $('#btn_edit').click(()=>{
     $('#edit').attr('style', 'visibility:hidden');
 });
 
+//delete
 function del_contents(id){
     const sure = confirm('정말로 삭제하시겠습니까?');
     if(!sure) {return false;}
