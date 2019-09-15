@@ -31,10 +31,10 @@ $('#btn_submit').click(()=>{
     callApi('/add', json, (data)=>{
         const array = data.rows;
         const last = array[array.length-1];
-        $('#contents').append(`<li>할일 : <span id = "pass_con${last.id}">${last.contents}</span>
+        $('#contents').append(`<li class = "collection-item">할일 : <span id = "pass_con${last.id}">${last.contents}</span>&nbsp;&nbsp;&nbsp;&nbsp;
         기한 : <span id = "pass_dead${last.id}">${last.deadline}</span> <br>
-        <input type = "button" class = "btn_edit" value = "수정" onclick="edit_contents(${last.id})">
-        <input type = "button" class = "btn_delete" value = "삭제" onclick = "del_contents(${last.id})"></li><br>`);
+        <input type = "button" class = "btn_edit" onclick="edit_contents(${last.id})">
+        <input type = "button" class = "btn_delete" onclick = "del_contents(${last.id})"></li>`);
     });
     $('#write').attr('style', 'visibility:hidden');
     alert('생성 완료!');
@@ -46,10 +46,10 @@ function list(){
         const array = data.rows;
         for(let i = 0; i < array.length; i++){
             const json = array[i];
-            $('#contents').append(`<li>할일 : <span id = "pass_con${json.id}">${json.contents}</span>
+            $('#contents').append(`<li class = "collection-item">할일 : <span id = "pass_con${json.id}">${json.contents}</span>&nbsp;&nbsp;&nbsp;&nbsp;
             기한 : <span id = "pass_dead${json.id}">${json.deadline}</span> <br>
-            <input type = "button" class = "btn_edit" value = "수정" onclick = "edit_contents(${json.id})">
-            <input type = "button" class = "btn_delete" value = "삭제" onclick = "del_contents(${json.id})"></li><br>`);
+            <input type = "button" class = "btn_edit" onclick = "edit_contents(${json.id})">
+            <input type = "button" class = "btn_delete" onclick = "del_contents(${json.id})"></li>`);
         }
     });
 }
@@ -94,10 +94,10 @@ $('#btn_edit').click(()=>{
         const array = json.rows;
         for(let i = 0; i < array.length; i++){
             const temp = array[i];
-            $('#contents').append(`<li>할일 : <span id = "pass_con${temp.id}">${temp.contents}</span>
+            $('#contents').append(`<li class = "collection-item">할일 : <span id = "pass_con${temp.id}">${temp.contents}</span>&nbsp;&nbsp;&nbsp;&nbsp;
             기한 : <span id = "pass_dead${temp.id}">${temp.deadline}</span> <br>
-            <input type = "button" class = "btn_edit" value = "수정" onclick = "edit_contents(${temp.id})">
-            <input type = "button" class = "btn_delete" value = "삭제" onclick = "del_contents(${temp.id})"></li><br>`);
+            <input type = "button" class = "btn_edit" onclick = "edit_contents(${temp.id})">
+            <input type = "button" class = "btn_delete" onclick = "del_contents(${temp.id})"></li>`);
         }
     });
     alert('수정 완료!');
@@ -114,10 +114,10 @@ function del_contents(id){
         const array = data.rows;
         for(let i = 0; i < array.length; i++){
             const temp = array[i];
-            $('#contents').append(`<li>할일 : <span id = "pass_con${temp.id}">${temp.contents}</span>
+            $('#contents').append(`<li class = "collection-item">할일 : <span id = "pass_con${temp.id}">${temp.contents}</span>&nbsp;&nbsp;&nbsp;&nbsp;
             기한 : <span id = "pass_dead${temp.id}">${temp.deadline}</span> <br>
-            <input type = "button" class = "btn_edit" value = "수정" onclick = "edit_contents(${temp.id})">
-            <input type = "button" class = "btn_delete" value = "삭제" onclick = "del_contents(${temp.id})"></li><br>`);
+            <input type = "button" class = "btn_edit" onclick = "edit_contents(${temp.id})">
+            <input type = "button" class = "btn_delete" onclick = "del_contents(${temp.id})"></li>`);
         }
     })
 }

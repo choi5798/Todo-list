@@ -7,17 +7,27 @@
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+          
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
 </head>
 <body>
-    <div class="header">
-            <input type="button" id="btn_insert" value="새 일정 만들기"></input>
+    <div class="header z-depth-5">
+            <p id="intro_text">새 일정 추가 <input type="button" id="btn_insert" class="btn-floating btn-large waves-effect waves-light green">
+            <i class="material-icons"></i> </p>
     </div>
     <hr>
-    <div class="body">
-        <div class="z-depth-5" id="write">
-            <form id="write-form">
+    <div class="body row">
+        <div class="z-depth-5 input-field row" id="write">
+            <form id="write-form" class="col s12">
                 내용 <br>
-                <textarea name="add_contents" id="add_contents" required cols="30" rows="10"></textarea>
+                <textarea name="add_contents" id="add_contents" class="materialize-textarea" rows="5" cols="40" required></textarea>
                 <br>
                 기한 <br>
                 <input type="text" name="add_deadline" id="add_deadline" class="datepicker" required>
@@ -27,21 +37,21 @@
                 </div>
             </form>
         </div>
-        <div class="z-depth-5" id="edit">
-            <form id="edit-form">
+        <div class="z-depth-5 input-field row" id="edit">
+            <form id="edit-form" class="col s12">
                 내용 <br>
-                <textarea name="edit_contents" id="edit_contents" cols="30" rows="10" required></textarea>
+                <textarea name="edit_contents" id="edit_contents" class="materialize-textarea" rows="5" cols="40" required></textarea>
                 <br>
                 기한
                 <input type="text" name="edit_deadline" id="edit_deadline" class="datepicker" required>
                 <div class="button-field">
-                    <input type="button" id="btn_edit" value="수정">
+                    <input type="button" id="btn_edit">
                     <input type="button" id="btn_edit_cancel" value="취소">
                 </div>
             </form>
         </div>
         <div>
-            <ul id="contents">
+            <ul id="contents" class="collection">
 
             </ul>
         </div>

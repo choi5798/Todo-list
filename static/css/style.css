@@ -1,6 +1,7 @@
-* { background-color: rgba(255, 104, 104, 0.466); 
+* {
     font-family: 'Nanum Gothic', sans-serif;
 }
+/*
 * * { background-color: rgba(0,255,0,.2); }
 * * * { background-color: rgba(0,0,255,.2); }
 * * * * { background-color: rgba(255,0,255,.2); }
@@ -9,22 +10,84 @@
 * * * * * * * { background-color: rgba(255,0,0,.2); }
 * * * * * * * * { background-color: rgba(0,255,0,.2); }
 * * * * * * * * * { background-color: rgba(0,0,255,.2); }
+*/
+
+body{
+    background-color : #e9ecef;
+}
+
+div.header{
+    display: table;
+    position : fixed;
+    bottom: 10%;
+    padding: 0;
+    border: none;
+    left: 40%;
+    right: 40%;
+}
 
 .z-depth-5{
     z-index: 5;
 }
-#write{
+#write, #edit{
     display: inline-block;
     position: absolute;
     visibility: hidden;
     text-align: center;
     background-color: white;
+    width: 480px;
+    height: 360px;
+    bottom: 35%;
+    padding: 0;
+    border : none;
+    left: 40%;
+    right: 40%;
 }
 
-#edit{
-    display: inline-block;
-    position: absolute;
-    visibility: hidden;
+#btn_insert{
+    padding: 0;
+    border : none;
+    background : none;
+    background-image : url('https://img.icons8.com/color/48/000000/add.png');
+    width: 48px;
+    height: 48px;
+}
+
+#intro_text{
+    font-size: 36px;
+    display: table-cell;
+    vertical-align: middle;
+    background-color: #adb5bd;
+    border-radius:10px;
     text-align: center;
-    background-color: antiquewhite;
+}
+
+input#btn_insert {
+    vertical-align: middle;
+}
+
+textarea.materialize-textarea {
+    height: 6rem;
+}
+
+#btn_edit, .btn_edit {
+    padding: 0;
+    border: none;
+    background : none;
+    background-image: url('../icons/icons8-edit-30.png');
+    width: 30px;
+    height: 30px;
+}
+
+.btn_delete {
+    padding: 0;
+    border: none;
+    background : none;
+    background-image: url('../icons/icons8-delete-bin-30.png');
+    width: 30px;
+    height: 30px;
+}
+
+ul {
+    font-size: 16px;
 }
