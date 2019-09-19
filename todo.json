@@ -2,49 +2,14 @@
     "count": 28,
     "rows": [
         {
-            "id": 17,
-            "contents": "sa",
-            "deadline": "2019-06-01"
-        },
-        {
-            "id": 18,
-            "contents": "asq",
-            "deadline": "2121-03-02"
-        },
-        {
-            "id": 19,
-            "contents": "추석",
-            "deadline": "2019-09-13"
-        },
-        {
-            "id": 20,
-            "contents": "rg",
-            "deadline": "2019-09-13"
-        },
-        {
             "id": 21,
             "contents": "ㅁㅁㅁㅁ",
             "deadline": "2019-09-26"
         },
         {
-            "id": 22,
-            "contents": "논회 과제 제출",
-            "deadline": "2019-09-17"
-        },
-        {
             "id": 23,
             "contents": "ㅁㄴ",
             "deadline": "2019-09-18"
-        },
-        {
-            "id": 25,
-            "contents": "ㅁㅇㄹㄴ",
-            "deadline": "2019-09-25"
-        },
-        {
-            "id": 27,
-            "contents": "ㅈㄷㄹ",
-            "deadline": "2019-09-17"
         }
     ]
 }

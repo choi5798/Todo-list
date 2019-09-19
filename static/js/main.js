@@ -3,6 +3,9 @@ $('#btn_insert').click(()=>{
     $('#add_contents').focus();
     $('#add_contents').val('');
     $('#add_deadline').val('');
+    if($('#edit').is(':visible')){
+        $('#edit').attr('style', 'visibility:hidden');
+    }
 });
 
 $('#btn_cancel').click(()=>{

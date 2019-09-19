@@ -19,11 +19,12 @@ body{
 div.header{
     display: table;
     position : fixed;
-    bottom: 10%;
+    bottom: 6%;
     padding: 0;
     border: none;
     left: 40%;
     right: 40%;
+    z-index: 6;
 }
 
 .z-depth-5{
@@ -40,8 +41,8 @@ div.header{
     bottom: 35%;
     padding: 0;
     border : none;
-    left: 40%;
-    right: 40%;
+    right: 0;
+    top: 50%;
 }
 
 #btn_insert{
@@ -57,6 +58,7 @@ div.header{
     font-size: 36px;
     display: table-cell;
     vertical-align: middle;
+    background : none;
     background-color: #adb5bd;
     border-radius:10px;
     text-align: center;
@@ -70,7 +72,7 @@ textarea.materialize-textarea {
     height: 6rem;
 }
 
-#btn_edit, .btn_edit {
+.btn_edit {
     padding: 0;
     border: none;
     background : none;

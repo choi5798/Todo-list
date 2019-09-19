@@ -56,11 +56,14 @@ function list(){
 
 let index;
 function edit_contents(id){
+    if($('#write').is(':visible')){
+        $('#write').attr('style', 'visibility:hidden');
+    }
     $('#edit').attr('style', 'visibility:visible');
     const main = $(`#pass_dead${id}`).position();
     const pop = $('#edit');
     pop.css('top', (main.top)+'px');
-    pop.css('left', (main.left + 100) + 'px');
+    pop.css('left', (main.left) + 'px');
     const pass_con = $(`#pass_con${id}`).text();
     const pass_dead = $(`#pass_dead${id}`).text();
     $('#edit_contents').val(pass_con);
@@ -120,6 +123,12 @@ function del_contents(id){
             <input type = "button" class = "btn_delete" onclick = "del_contents(${temp.id})"></li>`);
         }
     })
+    if($('#edit').is(':visible')){
+        $('#edit').attr('style', 'visibility:hidden');
+    }
+    if($('#write').is(':visible')){
+        $('#write').attr('style', 'visibility:hidden');
+    }
 }
 
 $(document).ready(()=>{
